@@ -1,6 +1,9 @@
 typedef int Item;
 
-#define swap(a, b) {Item t=a; a=b; b=t;}
+#define key(a) (a)
+#define less(a, b) (key(a) < key(b))
+#define exch(a, b) {Item t=a;a=b;b=t;}
+#define cmpexch(a, b) {if(less(b, a))exch(a, b)}
 
 void selection_sort(Item *p, int l, int r){
     int i, min = l;
@@ -8,8 +11,7 @@ void selection_sort(Item *p, int l, int r){
     if(r == l)
         return;
     for(i=min+1; i<=r; i++){
-        if(p[min] > p[i])
-            swap(p[min], p[i]);
+        cmpexch(p[min], p[i])
     }
     selection_sort(p, l+1, r);
 }
