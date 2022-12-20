@@ -1,5 +1,10 @@
 #include <stdlib.h>
 
+/*
+função merge para deletar o pivô do vetor
+Pode ser aplicado junto com a 'binary_search' quando temos que listar todos as structs com dados em comum
+*/
+
 typedef struct{
 	char name[50];
 	int age;
