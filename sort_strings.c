@@ -1,42 +1,22 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
-#define TAM_L 3
-#define TAM_C 20
+#define TAM_NAME 30
+#define key(a) a.name
 
-char str[TAM_L][TAM_C];
+typedef struct{
+    char name[TAM_NAME];
+    short int age;
+}Item;
 
-void sort_strings();
-
-int main()
+void sort_strings(Item *v, int l, int r)
 {
-    int i;
-    
-    for(i=0; i<TAM_L; i++){
-        printf("Digite a string: ");
-        scanf(" %s", str[i]);
-    }
-
-    sort_strings();
-    
-    for(i=0; i<TAM_L; i++){
-        printf("str[i]: %s\n", str[i]);
-    }
-}
-
-void sort_strings()
-{
-    char aux[TAM_C];
-    int i, m, r;
-    
-    for(i=0; i<TAM_L; i++){
-        for(m=i+1; m<TAM_L; m++){
-           r = strcmp(str[i], str[m]);
-           if(r > 0){
-                strcpy(aux, str[i]);
-                strcpy(str[i], str[m]);
-                strcpy(str[m], aux);
-           }
+    int i, m;   
+    for(i=l; i<=r; i++){
+        for(m=i+1; m<=r; m++){
+           if(strcmp(key(v[i]), key(v[m])) > 0)
+                exch(v[i], v[m]);
         }
     }
 }
