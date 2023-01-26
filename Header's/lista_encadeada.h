@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -103,4 +104,42 @@ void imprime_lista(no_st *no){
         printf("%d\n", no->e);
         imprime_lista(no->prox);
     }
+}
+
+int profundidade_no(header_st *h, no_st *no_fim)
+{
+    no_st *aux = h->inicio;
+    int count=0;
+    while(aux != no_fim){
+        aux = aux->prox;
+        count++;
+    }
+    return count;
+}
+
+int altura_no(no_st *no_inicio)
+{
+    no_st *aux = no_inicio;
+    int count=0;
+
+    while(aux != NULL){
+        aux = aux->prox;
+        count++;
+    }
+    return count;
+}
+
+int esta_crescente(header_st *h)
+{
+    no_st *aux = h->inicio;
+    int count=0;
+
+    while(aux != NULL){
+        if(aux->prox == NULL)
+            break;
+        if(aux->e <= aux->prox->e)
+            count++;
+        aux = aux->prox;
+    }
+    return count+1 == h->no_cout;
 }
