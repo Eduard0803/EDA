@@ -4,10 +4,7 @@
 
 #define key(a) a
 #define eq(a, b) (key(a) == key(b))
-#define eq_atr(a, b) (strcmp(a, b) == 0)
-#define NULL_ITEM (Item){0}
-#define IS_NULL_ITEM(a) {if(a == 0)}
-#define TAM_NAME 30
+#define eq_str(a, b) (strcmp(a, b) == 0)
 
 typedef int Item;
 
@@ -18,7 +15,7 @@ typedef struct no_st{
 
 typedef struct{
     no_st *inicio;
-    int no_cout;
+    int size;
     no_st *ultimo;
 }header_st;
 
@@ -26,11 +23,11 @@ int inicializa_lista(header_st *h)
 {
     h->inicio = NULL;
     h->inicio = NULL;
-    h->no_cout = 0;
+    h->size = 0;
     return 1;
 }
 
-int insere_inicio(header_st *h, Item e)
+int insere_inicio(header_st *h, Item e) // insere o Item no inicio da lista
 {
     no_st *novo_no = malloc(sizeof(no_st));
     if(novo_no == NULL)
@@ -38,21 +35,12 @@ int insere_inicio(header_st *h, Item e)
     novo_no->e = e;
     novo_no->prox = h->inicio;
     h->inicio = novo_no;
-    h->no_cout++;
+    h->ultimo = novo_no;
+    h->size++;
     return 1;
 }
 
-Item remove_inicio(header_st *h)
-{
-    no_st *to_remove = h->inicio;
-    h->inicio = h->inicio->prox;
-    Item ret = to_remove->e;
-    free(to_remove);
-    h->no_cout--;
-    return ret;
-}
-
-int insere_depois(no_st *no, Item e)
+int insere_depois(no_st *no, Item e) // insere o Item depois do nó que recebeu
 {
     no_st *novo_no = malloc(sizeof(no_st));
     if(novo_no == NULL)
@@ -63,83 +51,47 @@ int insere_depois(no_st *no, Item e)
     return 1;
 }
 
-int insere_depois_ou_fim(header_st *h, Item e, int p)
+int append(header_st *h, Item e) // se a lista estiver vazia insere o Item no inicio, senão insere no final
 {
-    int i=0;
-    no_st *aux = h->inicio;
-    while(i<p && aux->prox != NULL){
-        aux = aux->prox;
-        i++;
-    }
-    if(insere_depois(aux, e) == 0)
+    no_st *novo_no = malloc(sizeof(no_st));
+    if(novo_no == NULL)
         return 0;
-    h->no_cout++;
+    novo_no->e = e;
+    novo_no->prox = NULL;
+    if(h->inicio == NULL){
+        h->inicio = novo_no;
+        h->ultimo = novo_no;
+    }
+    else{
+        h->ultimo->prox = novo_no;
+        h->ultimo = novo_no;
+    }
+    h->size++;
     return 1;
 }
 
-no_st* busca_lista(header_st *h, Item b)
+Item remove_inicio(header_st *h) // remove o Item que está no inicio da lista
+{
+    no_st *to_remove = h->inicio;
+    h->inicio = h->inicio->prox;
+    Item ret = to_remove->e;
+    free(to_remove);
+    h->size--;
+    return ret;
+}
+
+no_st* busca_lista(header_st *h, Item search) // faz uma busca e retorna um ponteiro para o no, cujo Item é igual a 'search'
 {
     no_st *aux = h->inicio;
-    while(aux != NULL && !eq(b, aux->e))
+    while(aux != NULL && !eq(search, aux->e))
         aux = aux->prox;
     return aux;
 }
 
-Item busca_lista_item(header_st *h, Item b)
+void imprime_lista(no_st *no) // imprime a lista a partir do nó que recebeu como parametro
 {
-    no_st *a = busca_lista(h, b);
-    if(a != NULL)
-        return a->e;
-    return NULL_ITEM;
-}
-
-int insere_depois_de_item(header_st *h, Item c, Item e)
-{
-    no_st *a = busca_lista(h, c);
-    return insere_depois(a, e);
-}
-
-void imprime_lista(no_st *no){
     if(no != NULL){
-        printf("%d\n", no->e);
+        printf("%d\n", key(no->e));
         imprime_lista(no->prox);
     }
-}
-
-int profundidade_no(header_st *h, no_st *no_fim)
-{
-    no_st *aux = h->inicio;
-    int count=0;
-    while(aux != no_fim){
-        aux = aux->prox;
-        count++;
-    }
-    return count;
-}
-
-int altura_no(no_st *no_inicio)
-{
-    no_st *aux = no_inicio;
-    int count=0;
-
-    while(aux != NULL){
-        aux = aux->prox;
-        count++;
-    }
-    return count;
-}
-
-int esta_crescente(header_st *h)
-{
-    no_st *aux = h->inicio;
-    int count=0;
-
-    while(aux != NULL){
-        if(aux->prox == NULL)
-            break;
-        if(aux->e <= aux->prox->e)
-            count++;
-        aux = aux->prox;
-    }
-    return count+1 == h->no_cout;
 }
