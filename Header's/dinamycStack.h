@@ -9,53 +9,47 @@ typedef struct no_st{
 
 typedef struct{
     no_st *inicio;
-    int no_cout;
-    no_st *ultimo;
-}header_st;
-
-struct stack_st{
-    Item *v, topo;
     int size;
-    header_st h;
-};
+    no_st *ultimo;
+}stack_st;
 
 int incializa_stack(struct stack_st *p)
 {
-    p->h.inicio = NULL;
-    p->h.ultimo = NULL;
-    p->h.no_cout = 0;
-    p->size = p->h.no_cout;
+    p->inicio = NULL;
+    p->ultimo = NULL;
+    p->size = 0;
+    p->size = p->size;
     return 1;
 }
 
-int empilhar(struct stack_st *p, Item e)
+int empilhar(struct stack_st *p, Item e) // empilha os itens, inserindo eles no inicio da lista
 {
     no_st *novo_no = malloc(sizeof(no_st));
     if(novo_no == NULL)
         return 0;
     novo_no->e = e;
-    novo_no->prox = p->h.inicio;
-    p->h.inicio = novo_no;
-    p->h.no_cout++;
+    novo_no->prox = p->inicio;
+    p->inicio = novo_no;
+    p->size++;
     return 1;
 }
 
-Item desempilhar(struct stack_st *p)
+Item desempilhar(struct stack_st *p) // desempilha os itens, removendo eles do inicio da lista
 {
-    no_st *to_remove = p->h.inicio;
-    p->h.inicio = p->h.inicio->prox;
+    no_st *to_remove = p->inicio;
+    p->inicio = p->inicio->prox;
     Item ret = to_remove->e;
     free(to_remove);
-    p->h.no_cout--;
+    p->size--;
     return ret;
 }
 
-Item topo(struct stack_st *p)
+Item topo(struct stack_st *p) // retorna o item que está no topo da pilha
 {
-    return p->h.inicio->e;
+    return p->inicio->e;
 }
 
-int esta_vazia(struct stack_st *p)
+int esta_vazia(struct stack_st *p) // retorna True se a pilha estiver vazia, senão retorna False
 {
-    return p->h.no_cout == 0;
+    return p->size == 0;
 }
