@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 #define key(a) a
 #define eq(a, b) (key(a) == key(b))
-#define eq_str(a, b) (strcmp(a, b) == 0)
 
 typedef int Item;
 
