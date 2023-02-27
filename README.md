@@ -5,12 +5,12 @@ Prof. : Dr. Bruno César Ribas
 
 # Header's
 Contém os arquivos de cabeçalho (.h) com a implementação das estruturas de dados  
-> - dinamycQueue.h - Fila Dinâmica
-> - dinamycStack.h - Pilha Dinâmica
-> - double_linkeed.h - Lista Duplamente Encadeada
-> - linkeed_list.h - Lista Encadeada
-> - queue.h - Fila Estática
-> - stack.h - Pilha Estática
+> - [dinamycQueue.h](https://github.com/Eduard0803/EDA-1/blob/main/Header's/dinamycQueue.h) - Fila Dinâmica
+> - [dinamycStack.h](https://github.com/Eduard0803/EDA-1/blob/main/Header's/dinamycStack.h) - Pilha Dinâmica
+> - [double_linkeed.h](https://github.com/Eduard0803/EDA-1/blob/main/Header's/double_linkeed.h) - Lista Duplamente Encadeada
+> - [linkeed_list.h](https://github.com/Eduard0803/EDA-1/blob/main/Header's/linkeed_list.h) - Lista Encadeada
+> - [queue.h](https://github.com/Eduard0803/EDA-1/blob/main/Header's/queue.h) - Fila Estática
+> - [stack.h](https://github.com/Eduard0803/EDA-1/blob/main/Header's/stack.h) - Pilha Estática
 
 # Sort
 Contém os algoritmos de busca e ordenação de dados  
