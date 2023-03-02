@@ -156,14 +156,15 @@ void sort_list(header_st *h)
     }
 }
 
+#define key(a) a
 int insere_ordenado(header_st *h, Item e)
 {
     if(h->inicio == NULL)
         return insere_depois(h, h->inicio, e);
-    if(h->ultimo->e <= e)
+    if(key(h->ultimo->e) <= key(e))
         return insere_depois(h, h->ultimo, e);
     no_st *aux = h->inicio;
-    while(aux->e <= e && aux != NULL)
+    while(key(aux->e) <= key(e) && aux != NULL)
         aux = aux->prox;
     return insere_antes(h, aux, e);
 }

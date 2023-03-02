@@ -18,7 +18,6 @@ int inicializa_stack(stack_st *p)
     p->inicio = NULL;
     p->ultimo = NULL;
     p->size = 0;
-    p->size = p->size;
     return 1;
 }
 
