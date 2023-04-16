@@ -1,6 +1,6 @@
 # Códigos feitos durante a disciplina EDA-1
 Disciplina: 'Estruturas de Dados e Algoritmos 1'  
-Instituição: [Universidade de Brasília](https://unb.br/), [Faculdade do Gama](https://fga.unb.br/)  
+Instituição: [Universidade de Brasília](https://international.unb.br/), [Faculdade do Gama](https://fga.unb.br/), [Engenharia de Software](http://software.unb.br)  
 Prof. : [Dr. Bruno César Ribas](https://www.brunoribas.com.br/)  
 
 # Header's
