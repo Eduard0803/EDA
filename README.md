@@ -1,5 +1,5 @@
-# Códigos feitos durante a disciplina EDA-1 e EDA-2
-Disciplina: 'Estruturas de Dados e Algoritmos 1' e 'Estruturas de Dados e Algoritmos 2'  
+# Códigos feitos durante as disciplinas [EDA-1](https://www.brunoribas.com.br/aed1/2022-2/) e [EDA-2](https://www.brunoribas.com.br/eda2/2023-1/)
+Disciplinas: 'Estruturas de Dados e Algoritmos 1' e 'Estruturas de Dados e Algoritmos 2'  
 Instituição: [Universidade de Brasília](https://international.unb.br/), [Faculdade do Gama](https://fga.unb.br/), [Engenharia de Software](http://software.unb.br)  
 Prof. : [Dr. Bruno César Ribas](https://www.brunoribas.com.br/)  
 
@@ -53,7 +53,7 @@ Contém os algoritmos de busca e ordenação de dados
 Contém as [soluções](eda1/Trabalho-Final/) de alguns problemas feitos para o trabalho final da disciplina  
 - os problemas estão em formato (.pdf) e as resoluções em formato (.c)
 
-# EDA-2
+# [EDA-2](https://www.brunoribas.com.br/eda2/2023-1/)
 
 ### [Exercícios](eda2/exercises/) de EDA-2 no sistema [MOJ - Meta Online Judge](https://moj.naquadah.com.br/)
 
