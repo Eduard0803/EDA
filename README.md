@@ -60,7 +60,7 @@ Contém as [soluções](eda1/Trabalho-Final/) de alguns problemas feitos para o 
 Contém as soluções de alguns exercicios durante a disciplina  
 - os problemas estão em formato (.pdf) e as resoluções em formato (.c)
 
-# [headers](headers/)
+### [headers](eda2/headers/)
 Contém os arquivos de cabeçalho (.h) com a implementação das estruturas de dados  
-- [quick_sort](headers/quick_sort.h) - algoritmo de ordenação, complexidade variável O(N) - O(N²)  
-- [quick_select](headers/quick_select.h) - algoritmo de organização, complexidade variável O(N) - O(N²)  
+- [quick_sort](eda2/headers/quick_sort.h) - algoritmo de ordenação, complexidade variável O(N) - O(N²)  
+- [quick_select](eda2/headers/quick_select.h) - algoritmo de organização, complexidade variável O(N) - O(N²)  
