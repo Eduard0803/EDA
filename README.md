@@ -64,3 +64,4 @@ Contém as soluções de alguns exercicios durante a disciplina
 Contém os arquivos de cabeçalho (.h) com a implementação das estruturas de dados  
 - [quick_sort](eda2/headers/quick_sort.h) - algoritmo de ordenação, complexidade variável O(N) - O(N²)  
 - [quick_select](eda2/headers/quick_select.h) - algoritmo de organização, complexidade variável O(N) - O(N²)  
+- [heap](headers/heap.h) - Fila de Prioridade na heap binária, complexidade O(logN) para todos os casos, exceto a remoção

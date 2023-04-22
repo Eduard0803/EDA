@@ -6,7 +6,7 @@
 
 typedef int Item;
 
-int separa(Item *v, int l, int r)
+int partition(Item *v, int l, int r)
 {
   int i = l-1, j = r;
   Item c = v[r];
