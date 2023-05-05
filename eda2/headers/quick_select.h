@@ -25,7 +25,7 @@ void quick_select(Item *v, int l, int r, int k)
 {
     if(r <= l)
         return;
-    int i = separa(v, l, r);
+    int i = partition(v, l, r);
     if(i > k)
         quick_select(v, l, i-1, k);
     if(i < k)
