@@ -11,37 +11,33 @@ typedef struct celula{
     struct celula *prox;
 }celula;
 
-celula* stack_init()
-{
+celula* stack_init(){
     celula *stack = malloc(sizeof(celula));
     stack->prox = NULL;
     return stack;
 }
 
-void empilha(celula *stack, no *r)
-{ 
+void empilha(celula *stack, no *r){
     celula *novo_no = malloc(sizeof(celula));
     novo_no->conteudo = r;
     novo_no->prox = stack->prox;
     stack->prox = novo_no; 
 }
 
-no* desempilha(celula *stack) {
+no* desempilha(celula *stack){
     celula *old = stack->prox;
     no *r = old->conteudo;
     stack->prox = old->prox;
     free(old);
     return r; 
 }
-int empty(celula *stack) {return(stack->prox == NULL);}
+int empty(celula *stack){return stack->prox == NULL;}
 
-void pre_ordem(no *raiz)
-{
+void pre_ordem(no *raiz){
     celula *stack = stack_init();
     empilha (stack, raiz);
     
-    while(!empty(stack))
-    {
+    while(!empty(stack)){
         no *n = desempilha(stack);
         if(!n)
             continue;
