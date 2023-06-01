@@ -5,6 +5,7 @@ Contém as [soluções](exercises/) de alguns exercicios durante a disciplina
 
 # [headers](headers/)
 Contém os arquivos de cabeçalho (.h) com a implementação das estruturas de dados  
-- [quick_sort](headers/quick_sort.h) - algoritmo de ordenação, complexidade variável O(N) - O(N²)  
-- [quick_select](headers/quick_select.h) - [algoritmo de organização](https://www.youtube.com/watch?v=st8qo4RNS2I&pp=ygUYYnJ1bm8gcmliYXMgcXVpY2sgc2VsZWN0), complexidade variável O(N) - O(N²)  
+- [quick_sort](headers/quick_sort.h) - Algoritmo de ordenação, complexidade variável O(N) - O(N²)  
+- [quick_select](headers/quick_select.h) - [Algoritmo de organização](https://www.youtube.com/watch?v=st8qo4RNS2I&pp=ygUYYnJ1bm8gcmliYXMgcXVpY2sgc2VsZWN0), complexidade variável O(N) - O(N²)  
 - [heap](headers/heap.h) - Fila de Prioridade na heap binária, complexidade O(logN) para todos os casos, exceto a remoção
+- [Red_Black](eda2/headers/Red_Black.h) - Árvore binária de busca auto balanceada Red Black, complexidade O(logN) para todos os casos
