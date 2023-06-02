@@ -3,23 +3,6 @@
 #define key(a) a
 #define less(a, b) (key(a) < key(b))
 
-/*
-    - Red Black Tree
-
-    'Red Black' is a way to represent the '2-3-4 Tree' em uma 'Binary Tree'
-    
-    - Rules
-        - 'RED' links will always be on the left
-        - Cannot have two consecutive 'RED' links 
-        - The amount of 'Black' links is the same between the root and any of the leaves
-        - The Red-Black Tree does not admit collisions
-
-    - Error Treatment
-        - If it has a 'RED' link on the right, rotate_left
-        - If it has a two consecutive 'RED' links, rotate_right
-        - If a node has a both 'RED' links, flip_colors
-*/
-
 typedef int Item; // define o tipo 'Item'
 typedef enum {Red, Black}Color; // define o tipo 'Color'
 typedef struct no_st{ // define o tipo 'no_st'
@@ -55,7 +38,8 @@ void flip_colors(no_st *h){ // quando os dois filhos são 'Red' e o pai e 'Black
 
 no_st *pool_head = NULL; // no cabeça para a piscina de nós
 int empty_pool(){ return pool_head == NULL ? 1 : 0;} // retorna 'true' se e piscina estiver vazia, senão 'false'
-int grow_pool(int n){ // cria a piscina de nós
+int grow_pool(int n) // cria a piscina de nós
+{
     no_st *novo_no = malloc(sizeof(no_st)*n);
     if(novo_no == NULL)
         return 0;
@@ -68,7 +52,8 @@ int grow_pool(int n){ // cria a piscina de nós
     return 1;
 }
 
-no_st* get_free_node(){ // retorna um nó para uso
+no_st* get_free_node() // retorna um nó para uso
+{
     no_st *toReturn = pool_head;
     pool_head = pool_head->right;
     // toReturn->color = Red;
@@ -78,7 +63,8 @@ no_st* get_free_node(){ // retorna um nó para uso
     return toReturn;
 }
 
-void free_node(no_st *node){ // retorna um nó para a piscina
+void free_node(no_st *node) // retorna um nó para a piscina
+{
     node->right = pool_head;
     pool_head = node;
 }
@@ -118,16 +104,6 @@ no_st *insert(no_st *h, Item data){ // insere um Item na ávore e retorna a raiz
     return h;
 }
 
-void in_order(no_st *h){ // crossing 'in order'
-    int count = 0;
-    if(h == NULL)
-        return;
-    in_order(h->left);
-    while(count++ <= h->bumps) // imprime a quantidade de colisóes que tiver no 'node'
-        printf("%d ", key(h->data));
-    in_order(h->right);
-}
-
 no_st* search(no_st *h, Item data){ // busca de dados na árvore
     if(h == NULL) // retorna 'NULL' se a árvore estiver vazia ou não encontrar o 'node'
         return NULL;
@@ -136,4 +112,25 @@ no_st* search(no_st *h, Item data){ // busca de dados na árvore
     if(less(h->data, data))
         return search(h->right, data);
     return h; // senão retorna o 'node'
+}
+
+#define test(a) printf("test\n")
+int main()
+{
+    grow_pool(150000);
+    no_st *root = malloc(sizeof(no_st));
+    int n, first, input, r;
+
+    r=scanf("%d %d", &n, &first);
+    root = insert(NULL, first);
+
+    while(--n){
+        r=scanf("%d", &input);
+        root = insert(root, input);
+    }
+
+    while(scanf("%d", &input) != EOF){
+        no_st *buffer = search(root, input);
+        printf(buffer == NULL ? "nao\n" : "sim\n");
+    }
 }
