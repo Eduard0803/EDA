@@ -4,7 +4,7 @@ Prototipo de benchmark para os algoritmos de ordenação
 
 ## Algoritmos usados
 
-| Algoritmo | Complexidade |
+| Nome | Complexidade |
 | --------- | ------------ |
 | [bubblesort](bubble_sort.h) | O(n²) |
 | [selectionsort](selection_sort.h) | O(n²) |
