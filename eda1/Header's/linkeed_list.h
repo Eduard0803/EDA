@@ -1,11 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 #define key(a) a
 #define eq(a, b) (key(a) == key(b))
 
 typedef int Item;
-
 typedef struct no_st{
     Item e;
     struct no_st *prox;
@@ -17,16 +15,14 @@ typedef struct{
     no_st *ultimo;
 }header_st;
 
-int inicializa_lista(header_st *h)
-{
+int inicializa_lista(header_st *h){
     h->inicio = NULL;
     h->inicio = NULL;
     h->size = 0;
     return 1;
 }
 
-int insere_inicio(header_st *h, Item e) // insere o Item no inicio da lista
-{
+int insere_inicio(header_st *h, Item e){ // insere o Item no inicio da lista
     no_st *novo_no = malloc(sizeof(no_st));
     if(novo_no == NULL)
         return 0;
@@ -38,8 +34,7 @@ int insere_inicio(header_st *h, Item e) // insere o Item no inicio da lista
     return 1;
 }
 
-int insere_depois(no_st *no, Item e) // insere o Item depois do nó que recebeu
-{
+int insere_depois(no_st *no, Item e){ // insere o Item depois do nó que recebeu
     no_st *novo_no = malloc(sizeof(no_st));
     if(novo_no == NULL)
         return 0;
@@ -49,8 +44,7 @@ int insere_depois(no_st *no, Item e) // insere o Item depois do nó que recebeu
     return 1;
 }
 
-int append(header_st *h, Item e) // se a lista estiver vazia insere o Item no inicio, senão insere no final
-{
+int append(header_st *h, Item e){ // se a lista estiver vazia insere o Item no inicio, senão insere no final
     no_st *novo_no = malloc(sizeof(no_st));
     if(novo_no == NULL)
         return 0;
@@ -68,8 +62,7 @@ int append(header_st *h, Item e) // se a lista estiver vazia insere o Item no in
     return 1;
 }
 
-Item remove_inicio(header_st *h) // remove o Item que está no inicio da lista
-{
+Item remove_inicio(header_st *h){ // remove o Item que está no inicio da lista
     no_st *to_remove = h->inicio;
     h->inicio = h->inicio->prox;
     Item ret = to_remove->e;
@@ -78,16 +71,14 @@ Item remove_inicio(header_st *h) // remove o Item que está no inicio da lista
     return ret;
 }
 
-no_st* busca_lista(header_st *h, Item search) // faz uma busca e retorna um ponteiro para o no, cujo Item é igual a 'search'
-{
+no_st* busca_lista(header_st *h, Item search){ // busca o Item na lista
     no_st *aux = h->inicio;
     while(aux != NULL && !eq(search, aux->e))
         aux = aux->prox;
     return aux;
 }
 
-void imprime_lista(no_st *no) // imprime a lista a partir do nó que recebeu como parametro
-{
+void imprime_lista(no_st *no){ // imprime a lista 
     if(no != NULL){
         printf("%d\n", key(no->e));
         imprime_lista(no->prox);

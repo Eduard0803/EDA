@@ -1,18 +1,16 @@
+#define key(a) a
+
 typedef int Item;
 
-#define key(a) (a)
-
-int binary_search(Item *p, int x, int inicio, int fim)
-{
-    int meio = (inicio+fim)/2;
+int binary_search(Item *p, int x, int l, int r){
+    int m = l+(r-l)/2;
     
-    if(inicio > fim)
+    if(l > r)
         return -1;
-
-    if(x > key(p[meio]))
-        return binary_search(p, x, meio+1, fim);
-    if(x < key(p[meio]))
-        return binary_search(p, x, inicio, meio-1);
-    if(key(p[meio]) == x)
-        return meio;
+    if(x > key(p[m]))
+        return binary_search(p, x, m+1, r);
+    if(x < key(p[m]))
+        return binary_search(p, x, l, m-1);
+    if(key(p[m]) == x)
+        return m;
 }

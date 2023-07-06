@@ -15,8 +15,7 @@ typedef struct{
 #define exch(a, b) {Item t=a; a=b; b=t;}
 #define cmpexch(a, b) {if(less(a, b)) exch(a, b);}
 
-void merge_delete_pivo(Item *v, int l, int pivo, int r)
-{
+void merge_delete_pivo(Item *v, int l, int pivo, int r){
 	Item *s = malloc(sizeof(Item)*(r-l+1));
 	int ia=l, ib=pivo+1, iaux=0;
 

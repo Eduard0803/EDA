@@ -1,28 +1,25 @@
 #include <stdlib.h>
-
-typedef int Item;
-
-typedef struct no_st{
+// implementação da pilha em uma lista encadeada
+typedef int Item; // define o tipo Item
+typedef struct no_st{ // define cada nó da lista
     Item e;
     struct no_st *prox;
 }no_st;
 
-typedef struct{
+typedef struct{ // define a pilha
     no_st *inicio;
     int size;
     no_st *ultimo;
 }stack_st;
 
-int inicializa_stack(stack_st *p)
-{
+int inicializa_stack(stack_st *p){ // inicializa a pilha
     p->inicio = NULL;
     p->ultimo = NULL;
     p->size = 0;
     return 1;
 }
 
-int empilha(stack_st *p, Item e) // empilha os itens, inserindo eles no inicio da lista
-{
+int empilha(stack_st *p, Item e){ // empilha o Item
     no_st *novo_no = malloc(sizeof(no_st));
     if(novo_no == NULL)
         return 0;
@@ -33,8 +30,7 @@ int empilha(stack_st *p, Item e) // empilha os itens, inserindo eles no inicio d
     return 1;
 }
 
-Item desempilha(stack_st *p) // desempilha os itens, removendo eles do inicio da lista
-{
+Item desempilha(stack_st *p){ // desempilha o Item
     no_st *to_remove = p->inicio;
     p->inicio = p->inicio->prox;
     Item ret = to_remove->e;
@@ -43,12 +39,5 @@ Item desempilha(stack_st *p) // desempilha os itens, removendo eles do inicio da
     return ret;
 }
 
-Item topo(stack_st *p) // retorna o item que está no topo da pilha
-{
-    return p->inicio->e;
-}
-
-int esta_vazia(stack_st *p) // retorna True se a pilha estiver vazia, senão retorna False
-{
-    return p->size == 0;
-}
+Item top(stack_st *p){return p->inicio->e;} // retorna o item que está no topo da pilha
+int empty(stack_st *p){return p->size == 0;} // retorna 'True' se a pilha estiver vazia

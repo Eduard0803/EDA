@@ -1,12 +1,11 @@
-typedef int Item;
-
-#define key(a) (a)
+#define key(a) a
 #define less(a, b) (key(a) < key(b))
 #define exch(a, b) {Item t=a;a=b;b=t;}
 #define cmpexch(a, b) {if(less(b, a))exch(a, b)}
 
-void insertion_sort(Item *v, int l, int r)
-{
+typedef int Item;
+
+void insertion_sort(Item *v, int l, int r){
     int i;
     for(i=r; i>l; i--)
         cmpexch(v[i-1], v[i]);

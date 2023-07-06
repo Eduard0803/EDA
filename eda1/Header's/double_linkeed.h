@@ -11,10 +11,11 @@ remove_ultimo - remove o Item que esta no final da lista, se a lista estives vaz
 reverseList - inverte a lista, fazendo o swap dos ponteiro 'prev' e 'prox' de cada 'node' e tambem o swap entre 'h->inicio' e 'h->ultimo', nao retorna nada
 printList - escreve no console todos os Itens da lista, a partir do 'node' recebido como parametro
 printListReverse - escreve no console todos os Itens da lista, anteriores ao 'node' recebido como parametro
+sort_list - ordena os Itens da lista
+insere_ordenado - insere os Itens de forma ordenada
 */
 
-typedef int Item; // define o tipo 'Item' como um inteiro
-
+typedef int Item; // define o tipo 'Item'
 typedef struct no_st{ // define o tipo 'no_st' como uma struct, contendo um 'Item' e dois ponteiros para o proximo 'Item' e o anterior
     Item e;
     struct no_st *prev; // ponteiro para o Item anterior
@@ -27,21 +28,15 @@ typedef struct{
     no_st *ultimo; // ponteiro para o ultimo Item da lista
 }header_st;
 
-int inicializa_lista(header_st *h) // inicializa os ponteiros de inicio e final da 'header' como NULL e o size = 0
-{
+int inicializa_lista(header_st *h){ // inicializa a lista
     h->inicio = NULL;
     h->ultimo = NULL;
     h->size = 0;
     return 1;
 }
 
-int empty(header_st *h) // retorna verdadeiro se a lista estiver vazia, caso contrario, retorna falso
-{
-    return h->size == 0;
-}
-
-int insere_depois(header_st *h, no_st *no, Item e) // insere o Item depois do nó que recebeu
-{
+int empty(header_st *h){return h->size == 0;}  // retorna 'True' se a lista estiver vazia
+int insere_depois(header_st *h, no_st *no, Item e){ // insere o Item depois do nó que recebeu
     no_st *novo_no = malloc(sizeof(no_st));
     if(novo_no == NULL) return 0;
     novo_no->e = e;
@@ -63,8 +58,7 @@ int insere_depois(header_st *h, no_st *no, Item e) // insere o Item depois do n�
     return 1;
 }
 
-int insere_antes(header_st *h, no_st *no, Item e) // insere o Item antes do 'node' que recebeu
-{
+int insere_antes(header_st *h, no_st *no, Item e){ // insere o Item antes do 'node' que recebeu
     no_st *novo_no = malloc(sizeof(no_st));
     if(novo_no == NULL) return 0;
 
@@ -87,8 +81,7 @@ int insere_antes(header_st *h, no_st *no, Item e) // insere o Item antes do 'nod
     return 1;
 }
 
-void remove_inicio(header_st *h) // remove o primeiro Item da lista
-{
+void remove_inicio(header_st *h){ // remove o primeiro Item da lista
     if(empty(h)) return;
     no_st *to_remove = h->inicio;
     h->inicio = h->inicio->prox;
@@ -98,8 +91,7 @@ void remove_inicio(header_st *h) // remove o primeiro Item da lista
     free(to_remove);
 }
 
-void remove_ultimo(header_st *h) // remove o ultimo Item da lista
-{
+void remove_ultimo(header_st *h){ // remove o ultimo Item da lista
     if(empty(h)) return;
     no_st *to_remove = h->ultimo;
     h->ultimo = h->ultimo->prev;
@@ -109,34 +101,30 @@ void remove_ultimo(header_st *h) // remove o ultimo Item da lista
     free(to_remove); 
 }
 
-#define swap_no(a, b) {no_st *t=a;a=b;b=t;} // macro para fazer o swap entre os 'node'
-#define swap_walk_no(a) {swap_no(a->prev, a->prox);a=a->prev;} // macro para fazer o swap entre os 'node' e avancar para o proximo 'node'
-void reverseList(header_st *h) // inverte a lista
-{
+#define swap_no(a, b) {no_st *t=a;a=b;b=t;} // faz o swap
+#define swap_walk_no(a) {swap_no(a->prev, a->prox);a=a->prev;} // faz o swap e vai pro proximo 'node'
+void reverseList(header_st *h){ // inverte a lista
     no_st *aux = h->inicio;
     while(aux != NULL)
         swap_walk_no(aux);
     swap_no(h->inicio, h->ultimo);
 }
 
-void printList(no_st *no) // escreve todo os itens a partir do 'node' que recebeu
-{
+void printList(no_st *no){ // imprime os Itens da lista
     if(no != NULL){
         printf("%d ", no->e);
         printList(no->prox);
     }
 }
 
-void printListReverse(no_st *no) // escreve todos os Itens da lista ao contrario, a partir do 'node' que recebeu
-{
+void printListReverse(no_st *no){ // imprime os Itens da lista ao contrario
     if(no != NULL){
         printf("%d ", no->e);
         printListReverse(no->prev);
     }
 }
 
-void sort_list(header_st *h)
-{
+void sort_list(header_st *h){ // ordena a lista
     if (h->inicio == NULL)
         return;
 
@@ -157,8 +145,7 @@ void sort_list(header_st *h)
 }
 
 #define key(a) a
-int insere_ordenado(header_st *h, Item e)
-{
+int insere_ordenado(header_st *h, Item e){ // insere os Itens de forma ordenada
     if(h->inicio == NULL)
         return insere_depois(h, h->inicio, e);
     if(key(h->ultimo->e) <= key(e))
