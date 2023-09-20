@@ -68,6 +68,7 @@ Contém os arquivos de cabeçalho (.h) com a implementação das estruturas de d
 - [quick_sort](eda2/headers/quick_sort.h) - Algoritmo de ordenação, complexidade variável O(N) - O(N²)
 - [quick_select](eda2/headers/quick_select.h) - [Algoritmo de organização](https://www.youtube.com/watch?v=st8qo4RNS2I&pp=ygUYYnJ1bm8gcmliYXMgcXVpY2sgc2VsZWN0), complexidade variável O(N) - O(N²)
 - [heap](eda2/headers/heap.h) - Fila de Prioridade na heap binária, complexidade O(logN) para todos os casos, exceto a remoção
+- [hash_table](eda2/headers/hash_table/) - Implementação de uma tabela hash, complexidade entre O(1) e O(N) para todas as operações
 - [node_pool](eda2/headers/node_pool.h) - Aloca uma piscina de nós para usar nas árvores
 - [Binary_Search_Tree](eda2/headers/bst.h) - Árvore binária de busca simples, complexidade variavel, O(logN) e O(N) no melhor e pior caso  
 - [red_Black](eda2/headers/Red_Black.h) - Árvore binária de busca auto-balanceada Red Black, complexidade O(logN) para todos os casos
