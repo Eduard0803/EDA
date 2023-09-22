@@ -1,5 +1,5 @@
 #define key(a) a.amount
-#define eq(a, b) (key(a)==key(b))
+#define eq(a, b) (key(a) == key(b))
 
 typedef struct{
     char *name;
