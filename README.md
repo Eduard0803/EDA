@@ -11,22 +11,22 @@ Prof. : [Dr. Bruno César Ribas](https://www.brunoribas.com.br/)
 
 ### Header's
 Contém os arquivos de cabeçalho (.h) com a implementação das estruturas de dados
-- [Fila Dinâmica](eda1/Header's/dinamycQueue.h)
-- [Pilha Dinâmica](eda1/Header's/dinamycStack.h)
-- [Lista Encadeada](eda1/Header's/linkeed_list.h)
-- [Fila Estática](eda1/Header's/queue.h)
-- [Pilha Estática](eda1/Header's/stack.h)
+- [Fila Dinâmica](eda1/libs/dinamycQueue.h)
+- [Pilha Dinâmica](eda1/libs/dinamycStack.h)
+- [Lista Encadeada](eda1/libs/linkeed_list.h)
+- [Fila Estática](eda1/libs/queue.h)
+- [Pilha Estática](eda1/libs/stack.h)
 
 ### Sort
 Contém os algoritmos de busca e ordenação de dados
-- [binary_search.c](eda1/Sort/binary_search.h) - algoritmo de busca binária, complexidade variável O(1) - O(logN)
-- [bubble_sort.c](eda1/Sort/bubble_sort.h) - algoritmo de ordenação por bolha, complexidade constante O(N²)
-- [insertion_sort.c](eda1/Sort/insertion_sort.h) - algoritmo de ordenação por inserção, complexidade variável O(N) - O(N²)
-- [macros_para_ordenação](eda1/Sort/macros_para_ordenação.h) - contém as macros utilizadas nos algoritmos de busca e ordenação
-- [merge2](eda1/Sort/merge2.h) - realiza a operação do 'merge' com dois vetores distintos
-- [merge_delete_pivo](eda1/Sort/merge_delete_pivo.h) - realiza a operação do 'merge', mas apagando o pivo no vetor resultante
-- [merge_sort](eda1/Sort/merge_sort.h) - algoritmo de ordenação 'merge sort', complexidade constante O(N*logN)
-- [selection_sort](eda1/Sort/selection_sort.h) - algoritmo de ordenação 'selection sort', complexidade constante O(N²)
+- [binary_search.c](eda1/sort/binary_search.h) - algoritmo de busca binária, complexidade variável O(1) - O(logN)
+- [bubble_sort.c](eda1/sort/bubble_sort.h) - algoritmo de ordenação por bolha, complexidade constante O(N²)
+- [insertion_sort.c](eda1/sort/insertion_sort.h) - algoritmo de ordenação por inserção, complexidade variável O(N) - O(N²)
+- [macros_para_ordenação](eda1/sort/macros_para_ordenação.h) - contém as macros utilizadas nos algoritmos de busca e ordenação
+- [merge2](eda1/sort/merge2.h) - realiza a operação do 'merge' com dois vetores distintos
+- [merge_delete_pivo](eda1/sort/merge_delete_pivo.h) - realiza a operação do 'merge', mas apagando o pivo no vetor resultante
+- [merge_sort](eda1/sort/merge_sort.h) - algoritmo de ordenação 'merge sort', complexidade constante O(N*logN)
+- [selection_sort](eda1/sort/selection_sort.h) - algoritmo de ordenação 'selection sort', complexidade constante O(N²)
 
 ### Trabalho Final
 Contém as [soluções](eda1/Trabalho-Final/) de alguns problemas feitos para o trabalho final da disciplina
@@ -40,11 +40,11 @@ Contém as [soluções](eda1/Trabalho-Final/) de alguns problemas feitos para o 
 
 ### [headers](eda2/headers/)
 Contém os arquivos de cabeçalho (.h) com a implementação das estruturas de dados
-- [quick_sort](eda2/headers/quick_sort.h) - Algoritmo de ordenação, complexidade variável O(N) - O(N²)
-- [quick_select](eda2/headers/quick_select.h) - [Algoritmo de organização](https://www.youtube.com/watch?v=st8qo4RNS2I&pp=ygUYYnJ1bm8gcmliYXMgcXVpY2sgc2VsZWN0), complexidade variável O(N) - O(N²)
-- [heap](eda2/headers/heap.h) - Fila de Prioridade na heap binária, complexidade O(logN) para todos os casos, exceto a remoção
-- [hash_table](eda2/headers/hash_table/) - Implementação de uma tabela hash, complexidade entre O(1) e O(N) para todas as operações
-- [node_pool](eda2/headers/node_pool.h) - Aloca uma piscina de nós para usar nas árvores
-- [Binary_Search_Tree](eda2/headers/bst.h) - Árvore binária de busca simples, complexidade variavel, O(logN) e O(N) no melhor e pior caso  
-- [red_Black](eda2/headers/Red_Black.h) - Árvore binária de busca auto-balanceada Red Black, complexidade O(logN) para todos os casos
-- [floyd_warshall](eda2/headers/floyd_warshall.c) - Algoritmo Floyd Warshall para um grafo representado em uma matriz de adjacências, complexidade O(N³)  
+- [quick_sort](eda2/libs/quick_sort.h) - Algoritmo de ordenação, complexidade variável O(N) - O(N²)
+- [quick_select](eda2/libs/quick_select.h) - [Algoritmo de organização](https://www.youtube.com/watch?v=st8qo4RNS2I&pp=ygUYYnJ1bm8gcmliYXMgcXVpY2sgc2VsZWN0), complexidade variável O(N) - O(N²)
+- [heap](eda2/libs/heap.h) - Fila de Prioridade na heap binária, complexidade O(logN) para todos os casos, exceto a remoção
+- [hash_table](eda2/libs/hash_table/) - Implementação de uma tabela hash, complexidade entre O(1) e O(N) para todas as operações
+- [node_pool](eda2/libs/node_pool.h) - Aloca uma piscina de nós para usar nas árvores
+- [Binary_Search_Tree](eda2/libs/bst.h) - Árvore binária de busca simples, complexidade variavel, O(logN) e O(N) no melhor e pior caso  
+- [red_Black](eda2/libs/Red_Black.h) - Árvore binária de busca auto-balanceada Red Black, complexidade O(logN) para todos os casos
+- [floyd_warshall](eda2/libs/floyd_warshall.c) - Algoritmo Floyd Warshall para um grafo representado em uma matriz de adjacências, complexidade O(N³)  
