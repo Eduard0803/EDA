@@ -69,6 +69,8 @@ int grow_pool(int n){ // cria a piscina de nós
 }
 
 no_st* get_free_node(){ // retorna um nó para uso
+    if(empty_pool())
+        grow_pool(1<<20);
     no_st *toReturn = pool_head;
     pool_head = pool_head->right;
     // toReturn->color = Red;
